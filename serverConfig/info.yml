@@ -1,0 +1,10 @@
+elastic:
+  es1:
+    server: "172.30.1.56"
+    port: 9200
+    user:
+      id: "kim"
+      pw: "qwer1234"
+    isServerAlive: null
+    isServiceAlive: null
+    runPath: "/home/kim/Desktop/elastic-761/elasticsearch-7.6.1/bin"
