@@ -2,8 +2,7 @@ import yaml
 import os
 import subprocess as sp
 import requests
-import time
-from esSShRet import EsSShRet
+from esProj.esSShRet import EsSShRet
 
 
 class ServerInfo:
@@ -14,7 +13,7 @@ class ServerInfo:
         :param:
         :return:
         """
-        elk_conn_path = "./serverConfig/info.yml"
+        elk_conn_path = "../esProj/serverConfig/info.yml"
         response = os.path.isfile(elk_conn_path)
         if response:
             with open(elk_conn_path, "r", encoding="utf-8") as fr:
@@ -89,7 +88,7 @@ class ServerInfo:
                     if "Elasticsearch" in [ t for t in response.keys() ]:
                         ## 명령 송신
                         stdin, stdout, stderr = sshObj.exec_command("kill -9 {}".format(response["Elasticsearch"]))
-
+                        es_config["elastic"][k]["isServiceAlive"] = False
                 sshObj.close()
 
     # 운영중인 elastic node 를 모두 open
@@ -107,6 +106,7 @@ class ServerInfo:
                 ## 명령 송신
                 command = "nohup " + es_config["elastic"][k]["runPath"] + "/elasticsearch > /dev/null 2>&1 &"
                 stdin, stdout, stderr = sshObj.exec_command(command)
+                es_config["elastic"][k]["isServiceAlive"] = True
                 sshObj.close()
             else:
                 print("이미 동작중입니다.")

@@ -1,5 +1,4 @@
-from elasticsearch import Elasticsearch
-from esControl import EsControl
+from esProj.esControl import EsControl
 
 class ElasticClient(EsControl):
 
