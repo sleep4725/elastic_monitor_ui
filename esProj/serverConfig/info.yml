@@ -1,10 +1,36 @@
+kibana:
+  k1:
+    server: ""
+    port: 5601
+  isServerAlive: null
+  isServiceAlive: null
+  runPath: ""
+
 elastic:
   es1:
-    server: "172.30.1.56"
+    server: "172.30.1.45"
     port: 9200
     user:
       id: "kim"
-      pw: "qwer1234"
+      pw: "1234"
     isServerAlive: null
     isServiceAlive: null
-    runPath: "/home/kim/Desktop/elastic-761/elasticsearch-7.6.1/bin"
+    runPath: "/home/kim/elastic_proj/elasticsearch-7.8.1/bin"
+  es2:
+    server: "172.30.1.47"
+    port: 9200
+    user:
+      id: "kim"
+      pw: "1234"
+    isServerAlive: null
+    isServiceAlive: null
+    runPath: "/home/kim/elastic_proj/elasticsearch-7.8.1/bin"
+  es3:
+    server: "172.30.1.37"
+    port: 9200
+    user:
+      id: "kim"
+      pw: "1234"
+    isServerAlive: null
+    isServiceAlive: null
+    runPath: "/home/kim/elastic_proj/elasticsearch-7.8.1/bin"
