@@ -36,8 +36,8 @@ class Window(QWidget, EsControl):
             self.showFullScreen()
         elif e.key() == Qt.Key_N:
             self.showNormal()
-
+"""
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Window()
-    sys.exit(app.exec_())
+    sys.exit(app.exec_())"""

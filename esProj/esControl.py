@@ -21,8 +21,16 @@ class EsControl:
     def es_all_service_start(self):
         ServerInfo.all_elastic_node_start(es_config= self.es_config)
 
-"""
+    def kibana_all_service_close(self):
+        print (self.es_config)
+        ServerInfo.all_kibana_node_stop(es_config=self.es_config)
+
+    def kibana_all_service_start(self):
+        ServerInfo.all_kibana_node_start(es_config=self.es_config)
+
+
 if __name__ == "__main__":
     esNode = EsControl()
     #esNode.es_all_service_close()
-    esNode.es_all_service_start()"""
+    #esNode.es_all_service_start()
+    esNode.kibana_all_service_close()
