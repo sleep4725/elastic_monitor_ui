@@ -7,7 +7,7 @@ kibana:
       pw: "1234"
     isServerAlive: null
     isServiceAlive: null
-    runPath: "home/kim/elastic_proj/kibana-7.8.1/bin"
+    runPath: "/home/kim/elastic_proj/kibana-7.8.1/bin"
 
 elastic:
   es1:
@@ -27,7 +27,7 @@ elastic:
       pw: "1234"
     isServerAlive: null
     isServiceAlive: null
-    runPath: "/home/kim/elastic_proj/elasticsearch-7.8.1/bin"
+    runPath: "/home/kim/elasticsearch-7.8.1/bin"
   es3:
     server: "172.30.1.37"
     port: 9200
@@ -36,4 +36,4 @@ elastic:
       pw: "1234"
     isServerAlive: null
     isServiceAlive: null
-    runPath: "/home/kim/elastic_proj/elasticsearch-7.8.1/bin"
+    runPath: "/home/kim/elasticsearch-7.8.1/bin"

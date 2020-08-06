@@ -14,8 +14,8 @@ class ServerInfo:
         :param:
         :return:
         """
-        #elk_conn_path = "../esProj/serverConfig/info.yml"
-        elk_conn_path = "/Users/kimjunhyeon/PycharmProjects/stu_proj_elastic/esProj/serverConfig/info.yml"
+        elk_conn_path = "../esProj/serverConfig/info.yml"
+        #elk_conn_path = "/Users/kimjunhyeon/PycharmProjects/stu_proj_elastic/esProj/serverConfig/info.yml"
         response = os.path.isfile(elk_conn_path)
         if response:
             with open(elk_conn_path, "r", encoding="utf-8") as fr:
@@ -95,6 +95,7 @@ class ServerInfo:
                         ## 명령 송신
                         stdin, stdout, stderr = sshObj.exec_command("kill -9 {}".format(response["Elasticsearch"]))
                         es_config["elastic"][k]["isServiceAlive"] = False
+                        print("{} elastic process close".format(k))
                 sshObj.close()
 
 
@@ -108,12 +109,12 @@ class ServerInfo:
         for k in es_config["elastic"].keys():
             ##
             if not es_config["elastic"][k]["isServiceAlive"]:
-                print("call")
                 sshObj = EsSShRet.ret_es_client_node(es_node=es_config["elastic"][k])
                 ## 명령 송신
                 command = "nohup " + es_config["elastic"][k]["runPath"] + "/elasticsearch > /dev/null 2>&1 &"
                 stdin, stdout, stderr = sshObj.exec_command(command)
                 es_config["elastic"][k]["isServiceAlive"] = True
+                print("{} elastic process open".format(k))
                 sshObj.close()
             else:
                 print("이미 동작중입니다.")

@@ -27,6 +27,20 @@ class Window(QWidget, EsControl):
         esStopButton.clicked.connect(self.es_all_service_close)
         ## _______________________________________
 
+        ## kibana all start Button setting___________
+        esStartButton = QPushButton("kibana_all_start_button", self)
+        esStartButton.setToolTip("this is test button")
+        esStartButton.move(10, 100)
+        esStartButton.clicked.connect(self.kibana_all_service_start)
+        ## _______________________________________
+
+        ## kibana all stop Button setting___________
+        esStopButton = QPushButton("kibana_all_stop_button", self)
+        esStopButton.setToolTip("this is test button")
+        esStopButton.move(10, 150)
+        esStopButton.clicked.connect(self.kibana_all_service_close)
+        ## _______________________________________
+
         self.show()
 
     def keyPressEvent(self, e):
@@ -36,8 +50,8 @@ class Window(QWidget, EsControl):
             self.showFullScreen()
         elif e.key() == Qt.Key_N:
             self.showNormal()
-"""
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Window()
-    sys.exit(app.exec_())"""
+    sys.exit(app.exec_())
